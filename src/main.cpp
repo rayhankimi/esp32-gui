@@ -31,7 +31,7 @@ Button buttons[BTN_NUM] = {
 void setup() {
     Serial.begin(9600);
     for (int i = 0; i < BTN_NUM; i++) {
-        buttons[i].btn.setDebounceTime(50);
+        buttons[i].btn.setDebounceTime(35);
     }
 }
 
@@ -50,6 +50,8 @@ void loop() {
     buttons[0].state ? _state++ : _state;
     buttons[2].state ? _state-- : _state;
 
+    _state > 2 ? _state = 0 : _state;
+    _state < 0 ? _state = 2 : _state;
 
     // Debug button here
     buttons[0].state ? Serial.println("Button 1 pressed") : Serial.println("");
