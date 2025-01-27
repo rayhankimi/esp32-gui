@@ -18,7 +18,7 @@ void loop();
 void updateButtonStates();
 void handleStateChange();
 void debugButtons();
-void updateDisplay(const char* message);
+void updateDisplay(const char* messages[], int size);
 void initializeButtons();
 void set_display_1();
 void set_display_2();
